@@ -2,7 +2,7 @@ import Canvas from "../../models/canvas";
 import { Element } from "../../models/canvas/interface";
 import { uploadImage } from "../../utils/uploadImage";
 
-type UpdateCanvas = { image: string };
+type UpdateCanvas = { image: string; elements: Element[] };
 
 export const Mutation = {
     createCanvas: async (parent: any, args: { code: string; name: string }) => {

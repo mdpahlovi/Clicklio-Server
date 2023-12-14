@@ -27,7 +27,7 @@ const bootstrap = async () => {
     await mongoose.connect(mongodb_url!);
     cloudinary.config({ cloud_name: config.cloud.name, api_key: config.cloud.api_key, api_secret: config.cloud.api_secret });
 
-    app.use(cors(), bodyParser.json(), expressMiddleware(server));
+    app.use(cors(), bodyParser.json({ limit: "64mb" }), expressMiddleware(server));
     app.listen({ port }, () => console.log(`🚀 Server ready at http://localhost:${4000}`));
 };
 

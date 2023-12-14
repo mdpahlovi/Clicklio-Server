@@ -29,7 +29,18 @@ export const typeDefs = `#graphql
         deleteCanvas(code: String!): Canvas
     }
 
+    input ElementInput {
+        offsetX: Int
+        offsetY: Int
+        path: [[Int]]
+        width: Int
+        height: Int
+        stroke: String
+        tool: String
+    }
+
     input CanvasInput {
         image: String
+        elements: [ElementInput]
     }
 `;
