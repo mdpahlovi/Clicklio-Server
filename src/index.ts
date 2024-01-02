@@ -13,7 +13,6 @@ import config from "./config/index.js";
 import { typeDefs } from "./graphql/schemas/index.js";
 import { resolvers } from "./graphql/resolvers/index.js";
 
-const { port, mongodb_url } = config;
 const app = express();
 const httpServer = http.createServer(app);
 
@@ -23,8 +22,8 @@ const server = new ApolloServer({
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 await server.start();
-await mongoose.connect(mongodb_url!);
+await mongoose.connect(config.mongodb_url);
 cloudinary.config({ cloud_name: config.cloud.name, api_key: config.cloud.api_key, api_secret: config.cloud.api_secret });
 
 app.use(cors(), bodyParser.json({ limit: "64mb" }), expressMiddleware(server));
-app.listen({ port }, () => console.log(`🚀 Server ready at http://localhost:${4000}`));
+httpServer.listen(config.port, () => console.log(`🚀 Server Running On http://localhost:${config.port}`));
