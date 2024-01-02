@@ -1,6 +1,6 @@
-import Canvas from "../../models/canvas";
-import { Element } from "../../models/canvas/interface";
-import { uploadImage } from "../../utils/uploadImage";
+import Canvas from "../../models/canvas/index.js";
+import { Element } from "../../models/canvas/interface.js";
+import { uploadImage } from "../../utils/uploadImage.js";
 
 type UpdateCanvas = { image: string; elements: Element[] };
 

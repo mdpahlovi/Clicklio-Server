@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { CanvasModel, ICanvas } from "./interface";
+import { CanvasModel, ICanvas } from "./interface.js";
 
 const canvasSchema = new Schema<ICanvas>(
     {

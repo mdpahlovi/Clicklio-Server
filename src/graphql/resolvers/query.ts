@@ -1,4 +1,4 @@
-import Canvas from "../../models/canvas";
+import Canvas from "../../models/canvas/index.js";
 
 export const Query = {
     canvases: async () => await Canvas.find({}),
